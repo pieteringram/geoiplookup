@@ -8,13 +8,13 @@ execute "apt-get update" do
   command "apt-get update"
 end
 
-package ['geoip-bini', 'dnsutils'] do
+package ['geoip-bin', 'dnsutils', 'parallel'] do
   action :install
 end
 
 cookbook_file "/tmp/geoip.sh" do
   source "geoip.sh"
-  mode "0644"
+  mode "0744"
 end
 
 execute "geoip" do
