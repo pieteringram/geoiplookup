@@ -18,5 +18,6 @@ cookbook_file "/tmp/geoip.sh" do
 end
 
 execute "geoip" do
-  command "/tmp/geoip.sh [node]['domains']"
+  command "/tmp/geoip.sh #{node[:domains]}"
+  live_stream true
 end
